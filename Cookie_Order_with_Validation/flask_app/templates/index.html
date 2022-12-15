@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/static/stylesheet.css">
+    <title>Orders</title>
+</head>
+<body>
+    <h1>Cookie Orders</h1>
+    <div class="container">
+        <p>All orders</p>
+        <br>
+        {% for order in orders %}
+        <p>Name: {{order.name}}</p>
+        <br>
+        <p>Cookie Type: {{order.cookie_type}}</p>
+        <br>
+        <p>Number Of Boxes: {{order.number_of_boxes}}</p>
+        <br>
+        <a href="/editorder/{{order.id}}">Edit Order</a>
+        {% endfor %}
+        <div>
+            <br>
+            <a href="/addorder">Add Order</a>
+        </div>
+    </div>
+</body>
+</html>

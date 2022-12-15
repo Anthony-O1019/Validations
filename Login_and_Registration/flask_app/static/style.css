@@ -1,0 +1,25 @@
+*{
+    margin: auto 0px;
+    padding: 0px;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form1{
+    width: 500px;
+    background-color: rgb(196, 196, 196);
+    padding: 10px;
+}
+
+.form2{
+    background-color: rgb(188, 188, 188);
+    width: 500px;
+    padding: 10px;
+}
+
+input{
+    margin: 5px;
+    padding: 2px;
+}

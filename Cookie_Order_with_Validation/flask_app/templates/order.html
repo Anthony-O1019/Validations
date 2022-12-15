@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/static/stylesheet.css">
+    <title>Orders</title>
+</head>
+<body>
+    <h1>Log a New Order</h1>
+    <div class="container">
+    <form action="/create_order" method="POST">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <span>{{message}}</span>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <label for="name">Name: </label>
+        <input type="text" class="form_label" name="name">
+        <br>
+        <label for="cookie">Cookie Type: </label>
+        <input type="text" class="form_label" name="cookie_type">
+        <br>
+        <label for="amount">How Many Boxes: </label>
+        <input type="int"  class="form_label" name="number_of_boxes">
+        <br>
+        <input type="submit" name="submit" value="Add Order">
+    </form>
+    <br>
+    <a href="/">Home Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration And Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form1">
+            <h1>Register: </h1>
+        <form action="/create_user" method="POST">
+            <label for="first_name">Your First Name: </label>
+            <input type="text" name="first_name">
+            <br>
+            <label for="last_name">Your Last Name: </label>
+            <input type="text" name="last_name">
+            <br>
+            <label for="email">Register your Email: </label>
+            <input type="text" name="email">
+            <br>
+            <label for="password">Create Your Password:</label>
+            <input type="text" name="password">
+            <br>
+            <input type="submit" value="Register">
+            {% with errors = get_flashed_messages(category_filter=["register"]) %}
+                {% if errors %}
+                    {% for error in errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </form>
+        </div>
+        <div class="form2">
+            <h1>Log In: </h1>
+            <form action="/logging_in" method="POST">
+            <label for="email">Email: </label>
+            <input type="text" name="email">
+            <br>
+            <label for="password">Password: </label>
+            <input type="text" name="password">
+            <br>
+            <input type="submit" value="Register">
+            {% with errors = get_flashed_messages(category_filter=["login"]) %}
+            {% if errors %}
+                {% for error in errors %}
+                    <p>{{error}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </form>
+        </div>
+    </div>
+</body>
+</html>

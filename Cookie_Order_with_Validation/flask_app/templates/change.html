@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/static/stylesheet.css">
+    <title>Order</title>
+</head>
+<body>
+    <h1>Change Your Order!</h1>
+    <div class="container">
+        <form action="/update_order/{{order.id}}" method="POST">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <span>{{message}}</span>
+                    <br>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+            <label for="name" >Name: </label>
+            <input type="text" class="form_label" name="name" value="{{order.name}}">
+            <br>
+            <label for="cookie_type">Cookie Type: </label>
+            <input type="text" class="form_label" name="cookie_type" value="{{order.cookie_type}}">
+            <br>
+            <label for="number_of_boxes">Number of boxes: </label>
+            <input type="int" name="number_of_boxes" value="{{order.number_of_boxes}}">
+            <br>
+        <input type="submit" value="Log">
+        <input type="hidden" name="id" value="{{order.id}}">
+    </form>
+    <a href="/">Home Page</a>
+    </div>
+</body>
+</html>
